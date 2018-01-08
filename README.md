@@ -50,6 +50,21 @@ Datos
 
 Utilizaremos el dataset S&P 500 stock data “Historical stock data for all current S&P 500 companies” publicado por el usuario Cam Nugent en el repositorio Kaggle.com, el cual ha sido revisado por varios usuarios. El mismo esta publicado en formato .csv
 
+https://www.kaggle.com/camnugent/sandp500/data
+
+**Empresas por capitalización bursátil:**
+
+Apple
+
+Google
+
+Microsoft
+
+Amazon
+
+Facebook
+
+
 **¿Porque este repositorio?**
 
 El mismo es muy completo, tiene datos desde 2012 a 2017.Podemos encontrar los datos en formato .csv tanto de cada valor individualmente como de todos en su conjunto, en el ultimo caso tanto para 1 año como también para 5.
