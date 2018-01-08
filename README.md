@@ -1,4 +1,41 @@
 # Practica 2, Tipología y ciclo de vida de los datos
+````
+Enunciado:
+
+1. Descripción del dataset. ¿Por qué es importante y qué pregunta/problema
+pretende responder?
+
+2. Limpieza de los datos.
+
+2.1. Selección de los datos de interés a analizar. ¿Cuáles son los campos
+más relevantes para responder al problema?
+
+2.2. ¿Los datos contienen ceros o elementos vacíos? ¿Y valores extremos?
+¿Cómo gestionarías cada uno de estos casos?
+
+3. Análisis de los datos.
+
+3.1. Selección de los grupos de datos que se quieren analizar/comparar.
+
+3.2. Comprobación de la normalidad y homogeneidad de la varianza. Si es
+necesario (y posible), aplicar transformaciones que normalicen los datos.
+
+3.3. Aplicación de pruebas estadísticas (tantas como sea posible) para
+comparar los grupos de datos.
+
+4. Representación de los resultados a partir de tablas y gráficas.
+
+5. Resolución del problema. A partir de los resultados obtenidos, ¿cuáles son las
+conclusiones? ¿Los resultados permiten responder al problema?
+
+6. Código: Hay que adjuntar el código, preferiblemente en R, con el que se ha
+realizado la limpieza, análisis y representación de los datos. Si lo preferís,
+también podéis trabajar en Python.
+````
+
+````
+*Comentario: El punto 3.3, 4 y 5 seran presentados juntos.
+````
 
 **Punto 1**
 
@@ -23,6 +60,19 @@ Por lo que el objetivo será analizar dichos valores, y sacar como conclusión s
 
 Punto 2. Limpieza de los datos
 
+**Partes del Proyecto**
+
+•	Plantear situación a estudiar
+
+•	Selección de datos
+
+• 	Limpieza y conversión de datos
+
+•	Aplicación de modelos
+
+•	Conclusiones
+
+
 **Punto 2.1 Seleccionar los datos de interés. **
 
 En primer lugar, trabajaremos con 6 archivos .csv, los valores de cada empresa, y el csv que contiene las 500 empresas.
@@ -38,6 +88,15 @@ Todos estos archivos tienen en común sus cabecera, el primer paso será ver que
 6 2016-08-19 178.66 179.78 178.08 179.61 1305289  MMM
 ```
 Nos interesa solamente la fecha (Date), el valor de Cierre (Close) y el Nombre (Name). Aunque no guardaremos una columna con el nombre sino que llamaremos así la tabla que contenga esos valores o a las columnas de un nuevo data.frame. 
+
+**Comprendiendo los datos**
+
+AAPL => Apple => table1
+GOOGL => Alphabet (Google) => table2
+MSFT => Microsoft => table3
+AMZN => Amazon => table4
+FB => Facebook => table5
+
 
 **¿Porque se usar el valor de cierre y no otro?**
 
