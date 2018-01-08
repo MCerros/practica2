@@ -158,7 +158,7 @@ Utilizando la función summary de R podemos ver los datos básicos de cada valor
  3rd Qu.:2016-05-12   3rd Qu.: 759.8                     
  Max.   :2017-08-11   Max.   :1004.3 
  ```
-  
+ ![Imagen](https://github.com/MCerros/practica2/blob/master/11.png) 
  ```
 > summary(table3)
       Date                Close           Name          
@@ -169,7 +169,7 @@ Utilizando la función summary de R podemos ver los datos básicos de cada valor
  3rd Qu.:2016-05-12   3rd Qu.:54.34                     
  Max.   :2017-08-11   Max.   :74.22  
  ```
- 
+ ![Imagen](https://github.com/MCerros/practica2/blob/master/12.png)
  ```
 > summary(table4)
       Date                Close            Name          
@@ -180,7 +180,7 @@ Utilizando la función summary de R podemos ver los datos básicos de cada valor
  3rd Qu.:2016-05-12   3rd Qu.: 697.3                     
  Max.   :2017-08-11   Max.   :1052.8     
  ```
- 
+ ![Imagen](https://github.com/MCerros/practica2/blob/master/13.png)
  ```
 > summary(table5)
       Date                Close            Name          
