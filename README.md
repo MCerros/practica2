@@ -133,7 +133,9 @@ En la siguiente table solo vemos 0 como mínimos en el valor de volumen pero com
 ```
 **Punto 3 Análisis de datos**
 
-Normalidad: la distribución no es una normal, los valores de bolsa no suelen seguir esta distribución y menos en el largo plazo, queda evidenciado en la gráfica de los valores de Apple por ejemplo:
+![Imagen](https://github.com/MCerros/practica2/blob/master/1.png)
+
+**Normalidad:** la distribución no es una normal, los valores de bolsa no suelen seguir esta distribución y menos en el largo plazo, queda evidenciado en la gráfica de los valores de Apple por ejemplo:
  
 Aun así podemos comprar esto estadísticamente en R con la prueba de normalidad de Shapiro
 ```
@@ -183,6 +185,9 @@ Para saber esto usaremos la librería de r psych
 > pairs.panels(table0[c(2,3,4,5,6)])
 ```
 Dándonos como resultado el siguiente gráfico:
+
+![Imagen](https://github.com/MCerros/practica2/blob/master/2.png)
+
 Recordemos que los valores de correlación van desde el -1 al 1, siendo 1 correlación positiva, -1 correlación negativa y 0 ausencia total de correlación.
 
 Como podemos ver todas las empresas están fuertemente correlacionadas. Aun así, podemos estudiar algo más a fondo el caso de Apple, ya que, aunque la correlación es muy alta, no es tan fuerte como en el resto de las empresas. Siendo la menor de las correlaciones la que tiene con Amazon
@@ -245,7 +250,7 @@ Una Buena herramienta para utilizar en el caso de las series temporales como la 
 Para tal fin usaremos el paquete FORECAST de R, dentro del cual usaremos la función auto.arima, dejando al sistema elegir automática q ARIMA analizaremos.
 
 ```
-library(forecast)
+color: #2b21f2;library(forecast)
 
 fm1=auto.arima(table0$AAPL)
 p1=forecast(fm1, 260)
@@ -274,7 +279,17 @@ La línea azul es la línea de predicción, los colores azul y gris son los inte
 
 Todos los estudios han sido hechos a 260 días que es un año, esto debido a que la bolsa de valores cierra los fines de semana, por lo que la bolsa abre alrededor de 260 días al año.
 
-Atención: en los siguientes tres párrafos cuando nos referimos a tendencia, no nos referimos a la tendencia estadística que se puede calcular y graficar, sino al comportamiento de los datos.
+![Imagen](https://github.com/MCerros/practica2/blob/master/3.png)
+
+![Imagen](https://github.com/MCerros/practica2/blob/master/4.png)
+
+![Imagen](https://github.com/MCerros/practica2/blob/master/5.png)
+
+![Imagen](https://github.com/MCerros/practica2/blob/master/6.png)
+
+![Imagen](https://github.com/MCerros/practica2/blob/master/7.png)
+
+**Atención:** en los siguientes tres párrafos cuando nos referimos a tendencia, no nos referimos a la tendencia estadística que se puede calcular y graficar, sino al comportamiento de los datos.
 
 Recordemos que la superficie azul que está dentro de una superficie rodea la es el intervalo de confianza de un 95%(la superficie azul) y nos muestra que podría hacer el valor tanto si sube como si baja. Si la tendencia es alcista, aunque el valor baje no bajara de forma peligrosa.
 
