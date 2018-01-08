@@ -1,6 +1,6 @@
-# practica2
+# Practica 2, Tipología y ciclo de vida de los datos
 
-Punto 1
+**Punto 1**
 
 Motivación
 
