@@ -41,7 +41,7 @@ también podéis trabajar en Python.
 
 **Motivación**
 
-Al llegar a su fin el año 2018, se pueden leer una gran cantidad de artículos que analizan lo ocurrido a través del año. Una de las noticias ha sido el asalto definitivo de las tecnológicas al convertirse en los 5 valores de bolsa mas cotizados del mundo, siendo ellos Apple, Alphabet (Google), Microdoft, Amazon y Facebook. En el 2016 en los primeros 5 podíamos encontrar a la petrolera Exxon Mobil, que en 2017 fue desplazada al séptimo lugar.
+Al llegar a su fin el año 2017, se pueden leer una gran cantidad de artículos que analizan lo ocurrido a través del año. Una de las noticias ha sido el asalto definitivo de las tecnológicas al convertirse en los 5 valores de bolsa mas cotizados del mundo, siendo ellos Apple, Alphabet (Google), Microdoft, Amazon y Facebook. En el 2016 en los primeros 5 podíamos encontrar a la petrolera Exxon Mobil, que en 2017 fue desplazada al séptimo lugar.
 
 Podemos encontrar a estas 5 grandes empresas en el índice bursátil Standard & Poor's 500, uno de los índices mas importantes de EEUU y del mundo entero. Este índice lo componen empresas que cotizan en el NYSE y el NASDAQ, las dos bolsas mas importantes de EEUU, siendo NYSE mas tradicional, y el NASDAQ una bolsa totalmente electrónica en la actualidad donde cotizan gran parte de las tecnológicas.
 
