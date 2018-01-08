@@ -2,7 +2,7 @@
 
 **Punto 1**
 
-Motivación
+**Motivación**
 
 Al llegar a su fin el año 2018, se pueden leer una gran cantidad de artículos que analizan lo ocurrido a través del año. Una de las noticias ha sido el asalto definitivo de las tecnológicas al convertirse en los 5 valores de bolsa mas cotizados del mundo, siendo ellos Apple, Alphabet (Google), Microdoft, Amazon y Facebook. En el 2016 en los primeros 5 podíamos encontrar a la petrolera Exxon Mobil, que en 2017 fue desplazada al séptimo lugar.
 
@@ -13,17 +13,17 @@ Datos
 
 Utilizaremos el dataset S&P 500 stock data “Historical stock data for all current S&P 500 companies” publicado por el usuario Cam Nugent en el repositorio Kaggle.com, el cual ha sido revisado por varios usuarios. El mismo esta publicado en formato .csv
 
-¿Porque este repositorio?
+**¿Porque este repositorio?**
 
 El mismo es muy completo, tiene datos desde 2012 a 2017.Podemos encontrar los datos en formato .csv tanto de cada valor individualmente como de todos en su conjunto, en el ultimo caso tanto para 1 año como también para 5.
 
-Objetivo
+**Objetivo**
 
 Por lo que el objetivo será analizar dichos valores, y sacar como conclusión si pueden generar una burbuja o no.
 
 Punto 2. Limpieza de los datos
 
-Punto 2.1 Seleccionar los datos de interés. 
+**Punto 2.1 Seleccionar los datos de interés. **
 
 En primer lugar, trabajaremos con 6 archivos .csv, los valores de cada empresa, y el csv que contiene las 500 empresas.
 Todos estos archivos tienen en común sus cabecera, el primer paso será ver que nos sirve de estos archivos
@@ -39,7 +39,7 @@ Todos estos archivos tienen en común sus cabecera, el primer paso será ver que
 ```
 Nos interesa solamente la fecha (Date), el valor de Cierre (Close) y el Nombre (Name). Aunque no guardaremos una columna con el nombre sino que llamaremos así la tabla que contenga esos valores o a las columnas de un nuevo data.frame. 
 
-¿Porque se usar el valor de cierre y no otro?
+**¿Porque se usar el valor de cierre y no otro?**
 
 •	No todos los mercados a nivel mundial tienen subastas de apertura y esa es una de las razones que internacionalmente se use el de cierre.
 •	El precio de la subasta de apertura puede estar influido por lo que haya sucedió en el mercado mientras la bolsa estuviera cerrada.
@@ -65,7 +65,9 @@ table5 <- table05[,-c(2,3,4,6)]
 ```
 Si observamos el código de R, podemos ver que hemos quitado las columnas 2, 3, 4, y 6 dejando solo así dos columnas la 1 y la 5 que son las correspondientes a la fecha y el valor de cierre.
 
-Punto 2.2 Los datos no contiene valores vacíos, ya que están publicados en kaggle con una calidad excepcional, tampoco hay errores, por lo que no hay valores extremos que debamos modificar.
+**Punto 2.2**
+
+Los datos no contiene valores vacíos, ya que están publicados en kaggle con una calidad excepcional, tampoco hay errores, por lo que no hay valores extremos que debamos modificar.
 
 Esto lo podemos saber analizando los datos de todo el índice para 5 años, ya que los datos individuales que usaremos se encuentran ahí tamvien
 
@@ -129,7 +131,8 @@ En la siguiente table solo vemos 0 como mínimos en el valor de volumen pero com
  Class :character  
  Mode  :character  
 ```
-Punto 3 Análisis de datos
+**Punto 3 Análisis de datos**
+
 Normalidad: la distribución no es una normal, los valores de bolsa no suelen seguir esta distribución y menos en el largo plazo, queda evidenciado en la gráfica de los valores de Apple por ejemplo:
  
 Aun así podemos comprar esto estadísticamente en R con la prueba de normalidad de Shapiro
@@ -146,12 +149,14 @@ Aun así podemos comprar esto estadísticamente en R con la prueba de normalidad
 [1] 1.239775e-17
 ```
 Según el test de shapiro:
+
 Ho: la muestra proviene de una población normal
 Hi: la muestra no proviene de una población normal
 
 Ademas si usamos $p.value en R obtenemos el valor p de dicho test, tal como vemos en los 5 test que corresponden a los 5 valores, el valor p es sumamente pequeño, por lo que se rechaza la Ho. De esta manera comprobamos que no es una distribución normal.
 Homogeneidad de la varianza: 
 Utilizaremos esta prueba para saber si la variabilidad de estos cinco valores es similar o no. 
+
 Para esto usaremos la prueba de Bartlett donde:
 
 Ho: La varinza es similar en los 5 valores
@@ -189,7 +194,7 @@ Para eso estudiaremos por el método de regresión lineal y de la ANOVA la relac
 
 La ANOVA comprueba que las medias poblacionales son similares.
 
-Regresión Lineal
+**Regresión Lineal**
 ```
 > modelo1<-lm(table0$AAPL~table0$GOOGL+table0$MSFT+table0$AMZN+table0$FB)
 > summary(modelo1)
@@ -216,7 +221,7 @@ Residual standard error: 11.89 on 1253 degrees of freedom
 Multiple R-squared:  0.7739,	Adjusted R-squared:  0.7732 
 F-statistic:  1072 on 4 and 1253 DF,  p-value: < 2.2e-16
 ```
-ANOVA
+**ANOVA**
 ```
 > modelo1<-lm(table0$AAPL~table0$GOOGL+table0$MSFT+table0$AMZN+table0$FB)
 > ANOVA<-aov(modelo1)
@@ -233,7 +238,8 @@ Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’
 Tal como vemos en ambos analices, Apple si está relacionado con Google, Microsoft y Facebook, pero no con Amazon. Recordemos que el mayor negocio de Amazon es la venta retail por internet, además en una escala mucho menor se dedica al análisis de datos, venta de datos, y de ciertos servicios de streming o tabletas con marca propia. Es la empresa tecnológica con un nicho de mercado más diferenciado a las otras.
 
 Por lo que sacamos como conclusiones tanto de la regresión, la ANOVA, y la correlación, que todos están relacionados, aunque en el caso de Amazon en menor manera en relación con Apple. Por lo que en primer lugar vemos que la caída de un gigante como Apple no arrastraría a todos, a Amazon no, por ejemplo.
-ARIMA
+
+**ARIMA**
 
 Una Buena herramienta para utilizar en el caso de las series temporales como la de la bolsa, puede ser el proceso ARIMA, aunque es cierto que funciona mejor cuando las series son estacionarias, en este caso aun así podemos sacar ciertos resultados gracias a R.
 Para tal fin usaremos el paquete FORECAST de R, dentro del cual usaremos la función auto.arima, dejando al sistema elegir automática q ARIMA analizaremos.
@@ -261,7 +267,7 @@ fm5=auto.arima(table0$FB)
 p5=forecast(fm5, 260)
 plot(p5, type ='l', ylab="Close FB", xlab="DATE")
 ```
-Análisis Grafico del ARIMA
+**Análisis Grafico del ARIMA**
 
 Usamos ARIMA 0,1,0 porque es lo que nos entrega automáticamente la función auto.arima del paquete R
 La línea azul es la línea de predicción, los colores azul y gris son los intervalos de confianza. Siendo el interior (azul) el de 95% de confianza.
@@ -278,7 +284,7 @@ Entonces ¿Apple podría arrastrar al resto de valores? En principio no tanto co
  
  
       
-Otros analisis graficos:
+**Otros analisis graficos:**
 
 
           
