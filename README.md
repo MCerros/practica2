@@ -241,7 +241,9 @@ Grados de libertad: df = 4
 Valor P: p-value < 2.2e-16
 ```
 EL valor p es sumamente pequeño por lo que se acepta la Ho y sabemos que los 5 valores son homogéneos en varianza
-Puntos 3.3, Punto 4 y Punto 5
+
+**Puntos 3.3, Punto 4 y Punto 5**
+
 Ahora procederemos a aplicar varias pruebas estadísticas que nos servirán luego junto a los gráficos para sacar conclusiones.
 La primera prueba que nos interesa realizar es la de correlación. Para los valores de bolsa es muy importante esta prueba. Cuando dos valores están correlacionados de forma positiva, significa que cuando uno suba subirá el otro y viceversa. Esto nos interesa mucho ya que significa que, si todos los valores están correlacionados positivamente, cuando uno caiga caerán todos, y eso es parte esencial en el estallido de una burbuja.
 
@@ -362,7 +364,7 @@ Recordemos que la superficie azul que está dentro de una superficie rodea la es
 Como vemos todos tiene una tendencia alcista menos Apple. Por lo que a un año no tenemos peligros de una gran caída en estos valores ya que, aunque entraran en constante bajadas no mostraría grandes pérdidas. Sin embargo, el caso de Apple es diferente, en el cual la probabilidad de que suba y baje es muy similar ya que su tendencia es plana. Si nos hacemos eco de los medios en los últimos tiempos, su producto estrella, el iPhone, podría estar perdiendo cuota de mercado, por lo que no debería sorprendernos este resultado.
 Entonces ¿Apple podría arrastrar al resto de valores? En principio no tanto como imaginamos, podría perder su posición, y aunque arrastraría un poco a los demás, como veíamos en el gráfico de correlación, al ser el menos correlacionado, es el valor que menos afecta.
 
-#Conclusión global:
+**CONCLUSIÓN GLOBAL:**
 
 Siempre se puede intentar predecir lo ocurrirá con los valores de bolsa, pero casi nunca se puede predecir al 100% un suceso de estas características. La bolsa puede llegar a ser muy volátil, y suele verse afectada por el panorama sociopolítico mundial. 
 Aun así, sí que podemos sacar ciertas conclusiones:
