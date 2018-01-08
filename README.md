@@ -503,10 +503,20 @@ Aun así, sí que podemos sacar ciertas conclusiones:
 
 Todo el código de R esta ya expuesto en este documento.
 
+**BIBLIOGRAFÍA**
 
+**ECONOMIPEDIA.COM.** “Empresas más grandes del mundo 2017”
+<http://economipedia.com/ranking/empresas-mas-grandes-del-mundo-2017.html> 
 
-          
-http://economipedia.com/ranking/empresas-mas-grandes-del-mundo-2017.html 
-https://es.wikipedia.org/wiki/S%26P_500
+**WIKIPEDIA.** “S&P 500”
+<https://es.wikipedia.org/wiki/S%26P_500>
+
+**PLATT ,ERIC.** “El sector tecnológico de EEUU supera el récord de la burbuja tecnológica”
 http://www.expansion.com/empresas/tecnologia/2017/07/21/5970f1a7ca47411f0b8b4599.html
+
+**MINITAB.** “¿Qué es ANOVA?”
 https://support.minitab.com/es-mx/minitab/18/help-and-how-to/modeling-statistics/anova/supporting-topics/basics/what-is-anova/
+
+**OSBORNE, JASON W.** “Best Practices in Data Cleaning: A Complete Guide to Everything You Need to Do Before and After Collecting Your Data.”
+SAGE Publications, Inc. ISSN 08873763
+
