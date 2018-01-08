@@ -45,9 +45,9 @@ Nos interesa solamente la fecha (Date), el valor de Cierre (Close) y el Nombre (
 •	El precio de la subasta de apertura puede estar influido por lo que haya sucedió en el mercado mientras la bolsa estuviera cerrada.
 •	La apertura es más volátil.
 •	El precio de cierre esta mas justado a la realidad.
-```
-Crearemos 5 nuevas tablas con los valores transformados
 
+Crearemos 5 nuevas tablas con los valores transformados
+```
 table01<- AAPL_data
 table1 <- table0[,-c(2,3,4,6)]
 
@@ -64,6 +64,72 @@ table05<- FB_data
 table5 <- table05[,-c(2,3,4,6)]
 ```
 Si observamos el código de R, podemos ver que hemos quitado las columnas 2, 3, 4, y 6 dejando solo así dos columnas la 1 y la 5 que son las correspondientes a la fecha y el valor de cierre.
+```
+> head(table1)
+# A tibble: 6 x 3
+        Date Close  Name
+      <date> <dbl> <chr>
+1 2012-08-13 90.00  AAPL
+2 2012-08-14 90.24  AAPL
+3 2012-08-15 90.12  AAPL
+4 2012-08-16 90.91  AAPL
+5 2012-08-17 92.59  AAPL
+6 2012-08-20 95.02  AAPL
+> head(table2)
+# A tibble: 6 x 3
+        Date  Close  Name
+      <date>  <dbl> <chr>
+1 2012-08-13 330.34 GOOGL
+2 2012-08-14 334.66 GOOGL
+3 2012-08-15 334.10 GOOGL
+4 2012-08-16 336.77 GOOGL
+5 2012-08-17 338.91 GOOGL
+6 2012-08-20 338.11 GOOGL
+> head(table3)
+# A tibble: 6 x 3
+        Date Close  Name
+      <date> <dbl> <chr>
+1 2012-08-13 30.39  MSFT
+2 2012-08-14 30.13  MSFT
+3 2012-08-15 30.20  MSFT
+4 2012-08-16 30.78  MSFT
+5 2012-08-17 30.90  MSFT
+6 2012-08-20 30.74  MSFT
+> head(table4)
+# A tibble: 6 x 3
+        Date  Close  Name
+      <date>  <dbl> <chr>
+1 2012-08-13 232.44  AMZN
+2 2012-08-14 233.19  AMZN
+3 2012-08-15 237.42  AMZN
+4 2012-08-16 241.55  AMZN
+5 2012-08-17 241.17  AMZN
+6 2012-08-20 240.35  AMZN
+> head(table5)
+# A tibble: 6 x 3
+        Date Close  Name
+      <date> <dbl> <chr>
+1 2012-08-13 21.60    FB
+2 2012-08-14 20.38    FB
+3 2012-08-15 21.20    FB
+4 2012-08-16 19.87    FB
+5 2012-08-17 19.05    FB
+6 2012-08-20 20.01    FB
+```
+
+Creacion de “table0” que es una tabla con todos los valores juntos.
+```
+>Table0<- data.frame(DATE = table1$Date, AAPL = table1$Close, GOOGL = table2$Close, MSFT = table3$Close, AMZN = table4$Close, FB = table5$Close)
+
+> head(table0)
+        Date  AAPL  GOOGL  MSFT   AMZN    FB
+1 2012-08-13 90.00 330.34 30.39 232.44 21.60
+2 2012-08-14 90.24 334.66 30.13 233.19 20.38
+3 2012-08-15 90.12 334.10 30.20 237.42 21.20
+4 2012-08-16 90.91 336.77 30.78 241.55 19.87
+5 2012-08-17 92.59 338.91 30.90 241.17 19.05
+6 2012-08-20 95.02 338.11 30.74 240.35 20.01
+```
 
 **Punto 2.2**
 
@@ -250,7 +316,7 @@ Una Buena herramienta para utilizar en el caso de las series temporales como la 
 Para tal fin usaremos el paquete FORECAST de R, dentro del cual usaremos la función auto.arima, dejando al sistema elegir automática q ARIMA analizaremos.
 
 ```
-color: #2b21f2;library(forecast)
+library(forecast)
 
 fm1=auto.arima(table0$AAPL)
 p1=forecast(fm1, 260)
@@ -296,10 +362,20 @@ Recordemos que la superficie azul que está dentro de una superficie rodea la es
 Como vemos todos tiene una tendencia alcista menos Apple. Por lo que a un año no tenemos peligros de una gran caída en estos valores ya que, aunque entraran en constante bajadas no mostraría grandes pérdidas. Sin embargo, el caso de Apple es diferente, en el cual la probabilidad de que suba y baje es muy similar ya que su tendencia es plana. Si nos hacemos eco de los medios en los últimos tiempos, su producto estrella, el iPhone, podría estar perdiendo cuota de mercado, por lo que no debería sorprendernos este resultado.
 Entonces ¿Apple podría arrastrar al resto de valores? En principio no tanto como imaginamos, podría perder su posición, y aunque arrastraría un poco a los demás, como veíamos en el gráfico de correlación, al ser el menos correlacionado, es el valor que menos afecta.
 
- 
- 
-      
-**Otros analisis graficos:**
+#Conclusión global:
+
+Siempre se puede intentar predecir lo ocurrirá con los valores de bolsa, pero casi nunca se puede predecir al 100% un suceso de estas características. La bolsa puede llegar a ser muy volátil, y suele verse afectada por el panorama sociopolítico mundial. 
+Aun así, sí que podemos sacar ciertas conclusiones:
+
+•	No habrá burbuja de las tecnológicas en el 2018
+•	Hay una gran probabilidad de que Apple puede desacelerarse y para fines de 2018 comenzar a perder su primer puesto, en post de Google.
+•	La desaceleración de Apple no afectaría del todo al resto de valores ya que, a pesar de tener una correlación alta con el resto, no es tan alta en comparación con la que el resto tienen en tres sí.
+•	Una supuesta desaceleración de Apple no afectara casi a Amazon
+
+**Punto 6**
+
+Todo el código de R esta ya expuesto en este documento.
+
 
 
           
