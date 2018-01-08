@@ -42,8 +42,11 @@ Nos interesa solamente la fecha (Date), el valor de Cierre (Close) y el Nombre (
 **¿Porque se usar el valor de cierre y no otro?**
 
 •	No todos los mercados a nivel mundial tienen subastas de apertura y esa es una de las razones que internacionalmente se use el de cierre.
+
 •	El precio de la subasta de apertura puede estar influido por lo que haya sucedió en el mercado mientras la bolsa estuviera cerrada.
+
 •	La apertura es más volátil.
+
 •	El precio de cierre esta mas justado a la realidad.
 
 Crearemos 5 nuevas tablas con los valores transformados
@@ -130,7 +133,64 @@ Creacion de “table0” que es una tabla con todos los valores juntos.
 5 2012-08-17 92.59 338.91 30.90 241.17 19.05
 6 2012-08-20 95.02 338.11 30.74 240.35 20.01
 ```
+**Primera vista de los datos:**
 
+Utilizando la función summary de R podemos ver los datos básicos de cada valor de bolsa. Ademas usaremos la función plot para graficar dichos valores.
+![Imagen](https://github.com/MCerros/practica2/blob/master/8.png)
+```
+> summary(table1)
+      Date                Close            Name          
+ Min.   :2012-08-13   Min.   : 55.79   Length:1258       
+ 1st Qu.:2013-11-12   1st Qu.: 77.70   Class :character  
+ Median :2015-02-12   Median :100.75   Mode  :character  
+ Mean   :2015-02-12   Mean   :101.04                     
+ 3rd Qu.:2016-05-12   3rd Qu.:117.15                     
+ Max.   :2017-08-11   Max.   :161.06 
+ ```
+ ![Imagen](https://github.com/MCerros/practica2/blob/master/9.png)
+ ```
+> summary(table2)
+      Date                Close            Name          
+ Min.   :2012-08-13   Min.   : 323.9   Length:1258       
+ 1st Qu.:2013-11-12   1st Qu.: 508.2   Class :character  
+ Median :2015-02-12   Median : 579.2   Mode  :character  
+ Mean   :2015-02-12   Mean   : 616.6                     
+ 3rd Qu.:2016-05-12   3rd Qu.: 759.8                     
+ Max.   :2017-08-11   Max.   :1004.3 
+ ```
+  
+ ```
+> summary(table3)
+      Date                Close           Name          
+ Min.   :2012-08-13   Min.   :26.37   Length:1258       
+ 1st Qu.:2013-11-12   1st Qu.:36.05   Class :character  
+ Median :2015-02-12   Median :45.34   Mode  :character  
+ Mean   :2015-02-12   Mean   :45.91                     
+ 3rd Qu.:2016-05-12   3rd Qu.:54.34                     
+ Max.   :2017-08-11   Max.   :74.22  
+ ```
+ 
+ ```
+> summary(table4)
+      Date                Close            Name          
+ Min.   :2012-08-13   Min.   : 220.6   Length:1258       
+ 1st Qu.:2013-11-12   1st Qu.: 305.0   Class :character  
+ Median :2015-02-12   Median : 384.6   Mode  :character  
+ Mean   :2015-02-12   Mean   : 492.9                     
+ 3rd Qu.:2016-05-12   3rd Qu.: 697.3                     
+ Max.   :2017-08-11   Max.   :1052.8     
+ ```
+ 
+ ```
+> summary(table5)
+      Date                Close            Name          
+ Min.   :2012-08-13   Min.   : 17.73   Length:1258       
+ 1st Qu.:2013-11-12   1st Qu.: 49.57   Class :character  
+ Median :2015-02-12   Median : 78.61   Mode  :character  
+ Mean   :2015-02-12   Mean   : 81.61                     
+ 3rd Qu.:2016-05-12   3rd Qu.:114.88                     
+ Max.   :2017-08-11   Max.   :172.45 
+```
 **Punto 2.2**
 
 Los datos no contiene valores vacíos, ya que están publicados en kaggle con una calidad excepcional, tampoco hay errores, por lo que no hay valores extremos que debamos modificar.
@@ -140,7 +200,10 @@ Esto lo podemos saber analizando los datos de todo el índice para 5 años, ya q
 Aun así, si los hubiera habido las soluciones son la siguientes:
 
 •	Valores extremos: Eliminarlos, ya que hay tantos valores y son diarios, eliminar algunos valores no afectaría a los datos.
-•	Valores perdidos o 0: eliminarlos, en especial los 0 porque en el caso de nuestros datos esos 0 se convertirían en valores extremos, ya que estamos analizando las 5 empresas mas valiosas del mundo donde cada cotización es de 300 a 1200 dólares.
+
+•	Valores perdidos o 0: eliminarlos, en especial los 0 porque en el caso de nuestros datos esos 0 se convertirían en valores 
+extremos, ya que estamos analizando las 5 empresas mas valiosas del mundo donde cada cotización es de 300 a 1200 dólares.
+
 •	Valores vacíos: Se pueden arreglar al introducir los datos en r, siendo la mejor opción en nuestro caso dejar la opción por defecto.
 ```
 > str(all_stocks_5yr)
@@ -370,8 +433,11 @@ Siempre se puede intentar predecir lo ocurrirá con los valores de bolsa, pero c
 Aun así, sí que podemos sacar ciertas conclusiones:
 
 •	No habrá burbuja de las tecnológicas en el 2018
+
 •	Hay una gran probabilidad de que Apple puede desacelerarse y para fines de 2018 comenzar a perder su primer puesto, en post de Google.
+
 •	La desaceleración de Apple no afectaría del todo al resto de valores ya que, a pesar de tener una correlación alta con el resto, no es tan alta en comparación con la que el resto tienen en tres sí.
+
 •	Una supuesta desaceleración de Apple no afectara casi a Amazon
 
 **Punto 6**
